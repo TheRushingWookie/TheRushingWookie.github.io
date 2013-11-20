@@ -15,11 +15,21 @@
         margin: 0;
         max-width: 100%;
         background-color:white;
-
+        margin: 10px;
+        width: 500px;
+        
+    }
+    #html{
+        position:absolute;
+       margin: 100px;
+       width: 800px; 
     }
     #container {
-       
+       float:right;
+       margin: 10px;
+       width: 600px;
     }
+    svg { position:absolute; top:0; bottom:0; left:0; right:0 }
     h1 {
         text-align: center;
     }
@@ -32,7 +42,7 @@
 <div id="container">
 
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1500" height="800" viewBox="-18279,-26465 34534,61566">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  viewBox="-18279,-26465 34534,61566">
 
 <g stroke="black" fill="none" stroke-linejoin="round" stroke-width="55" clip-path="url(#state_clip_path)">
 <use xlink:href="#state_outline" fill="white" stroke-width="241" />
@@ -142,45 +152,48 @@
 
 </svg>
 
-</div>
+<div id=html>
 
     <ul id="ct"></ul>
     <form action="">
     <input type="checkbox" name="percapita" id="percapita" checked>Use per capita values?<br>
-    Number of categories (1 - 255)<input type="text" name="numcategories" id="numcategories"><br>
-<select name="Choice1" id="Choice1"> 
+    Number of categories (1 - 255)<input type="text" name="numcategories" id="numcategories" value="255"><br>
+<select name="Choice1" id="Choice1" style='width: 200px;'> 
 </select>
+<input type="checkbox" name="choice1on" id="choice1on" checked>On
+<br>
 The more red, the more correllation to choice 1.
-<input type="checkbox" name="choice1on" id="choice1on" checked>On<br>
+<br>
+<br>
+<br>
+<br>
 
-<select name="Choice2" id="Choice2"> 
+<select name="Choice2" id="Choice2"style='width: 200px;'> 
 <input type="checkbox" id="choice2on" name="choice2on" checked>On
 </select>
+<br>
 The more green, the more correllation to choice 2.
 <button type="button" id="Render">Render</button>
 </form>
+</div>
+</div>
 The closer the color of a county is to yellow, there is more correlation between both choice 1 and choice 2.
 <script type="text/javascript" charset="utf-8">
 
-var data = [["#Adams", 8], ["#Alexander", 1], ["#Bond", 1], ["#Boone", 24], ["#Brown", 1], ["#Bureau", 23], ["#Calhoun", 1], ["#Carroll", 6], ["#Cass", 1], ["#Champaign", 36], ["#Christian", 4], ["#Clark", 1], ["#Clay", 1], ["#Clinton", 2], ["#Coles", 8], ["#Cook", 851], ["#Crawford", 1], ["#Cumberland", 1], ["#DeKalb", 42], ["#De Witt", 3], ["#Douglas", 2], ["#DuPage", 256], ["#Edgar", 3], ["#Edwards", 1], ["#Effingham", 2], ["#Fayette", 2], ["#Ford", 8], ["#Franklin", 3], ["#Fulton", 9], ["#Gallatin", 1], ["#Greene", 1], ["#Grundy", 9], ["#Hamilton", 1], ["#Hancock", 5], ["#Hardin", 1], ["#Henderson", 8], ["#Henry", 63], ["#Iroquois", 9], ["#Jackson", 8], ["#Jasper", 1], ["#Jefferson", 4], ["#Jersey", 1], ["#Jo Daviess", 4], ["#Johnson", 1], ["#Kane", 138], ["#Kankakee", 17], ["#Kendall", 17], ["#Knox", 60], ["#Lake", 178], ["#LaSalle", 26], ["#Lawrence", 1], ["#Lee", 10], ["#Livingston", 7], ["#Logan", 5], ["#McDonough", 12], ["#McHenry", 77], ["#McLean", 34], ["#Macon", 15], ["#Macoupin", 3], ["#Madison", 16], ["#Marion", 3], ["#Marshall", 7], ["#Mason", 3], ["#Massac", 1], ["#Menard", 3], ["#Mercer", 21], ["#Monroe", 2], ["#Montgomery", 2], ["#Morgan", 5], ["#Moultrie", 2], ["#Ogle", 22], ["#Peoria", 44], ["#Perry", 1], ["#Piatt", 3], ["#Pike", 2], ["#Pope", 1], ["#Pulaski", 1], ["#Putnam", 3], ["#Randolph", 2], ["#Richland", 2], ["#Rock Island", 110], ["#St. Clair", 15], ["#Saline", 2], ["#Sangamon", 22], ["#Schuyler", 2], ["#Scott", 1], ["#Shelby", 2], ["#Stark", 4], ["#Stephenson", 10], ["#Tazewell", 25], ["#Union", 2], ["#Vermilion", 17], ["#Wabash", 2], ["#Warren", 21], ["#Washington", 1], ["#Wayne", 1], ["#White", 1], ["#Whiteside", 23], ["#Will", 97], ["#Williamson", 5], ["#Winnebago", 243], ["#Woodford", 6]]
-var data2 = [["#Adams", 21], ["#Alexander", 2], ["#Bond", 4], ["#Boone", 12], ["#Brown", 1], ["#Bureau", 10], ["#Calhoun", 1], ["#Carroll", 5], ["#Cass", 3], ["#Champaign", 60], ["#Christian", 10], ["#Clark", 5], ["#Clay", 3], ["#Clinton", 10], ["#Coles", 16], ["#Cook", 1561], ["#Crawford", 5], ["#Cumberland", 2], ["#DeKalb", 27], ["#De Witt", 4], ["#Douglas", 5], ["#DuPage", 256], ["#Edgar", 5], ["#Edwards", 1], ["#Effingham", 9], ["#Fayette", 5], ["#Ford", 3], ["#Franklin", 12], ["#Fulton", 11], ["#Gallatin", 1], ["#Greene", 3], ["#Grundy", 12], ["#Hamilton", 2], ["#Hancock", 5], ["#Hardin", 1], ["#Henderson", 2], ["#Henry", 14], ["#Iroquois", 9], ["#Jackson", 19], ["#Jasper", 2], ["#Jefferson", 11], ["#Jersey", 6], ["#Jo Daviess", 8], ["#Johnson", 3], ["#Kane", 123], ["#Kankakee", 31], ["#Kendall", 24], ["#Knox", 16], ["#Lake", 180], ["#LaSalle", 34], ["#Lawrence", 4], ["#Lee", 9], ["#Livingston", 10], ["#Logan", 7], ["#McDonough", 9], ["#McHenry", 82], ["#McLean", 48], ["#Macon", 36], ["#Macoupin", 15], ["#Madison", 83], ["#Marion", 12], ["#Marshall", 3], ["#Mason", 4], ["#Massac", 4], ["#Menard", 3], ["#Mercer", 4], ["#Monroe", 8], ["#Montgomery", 8], ["#Morgan", 10], ["#Moultrie", 3], ["#Ogle", 15], ["#Peoria", 58], ["#Perry", 6], ["#Piatt", 4], ["#Pike", 5], ["#Pope", 1], ["#Pulaski", 1], ["#Putnam", 1], ["#Randolph", 9], ["#Richland", 4], ["#Rock Island", 46], ["#St. Clair", 82], ["#Saline", 8], ["#Sangamon", 64], ["#Schuyler", 1], ["#Scott", 1], ["#Shelby", 6], ["#Stark", 1], ["#Stephenson", 15], ["#Tazewell", 39], ["#Union", 5], ["#Vermilion", 25], ["#Wabash", 3], ["#Warren", 4], ["#Washington", 4], ["#Wayne", 5], ["#White", 4], ["#Whiteside", 17], ["#Will", 165], ["#Williamson", 20], ["#Winnebago", 89], ["#Woodford", 10]]
-
-for(var i=0;i<data.length;i++)
+function get_new_range(old_min,old_max,new_min,new_max,old_val)
 {
-    var name = data[i][0]
-    var color = data[i][1]
-    color = 255 - color
-    color2 =  data2[i][1]
-    $(name).css('fill', 'rgb(0,' + color2 + ',' + color + ')')
+    return ((((new_max - new_min) * (old_val - old_min)) / (old_max - old_min)) + new_min)
 }
+var data,data2
 $( "#Render" ).click(function() {
+        var choice1Val,choice2Val
         choice1Val = $('#Choice1').val()
         choice2Val = $('#Choice2').val()
         var choice1On,choice2on,percapita
         percapita = document.getElementById('percapita').checked
         choice1on = document.getElementById('choice1on').checked
         choice2on =  document.getElementById('choice2on').checked
-        var data, data2, data_url1, data_url2,numcategories
+        var data_url1, data_url2,numcategories
         numcategories = $('#numcategories').val()
         console.log(numcategories)
         if(percapita)
@@ -192,34 +205,70 @@ $( "#Render" ).click(function() {
             data_url1 = '/static/' + choice1Val + ".json"
             data_url2 = '/static/' + choice2Val + ".json"
         }
+
         $.getJSON(data_url1 , function( stuff ) {
-        data = stuff
-        $.getJSON( data_url2, function( stuff ) {
-        data2 = stuff  
-        for(var i=0;i<data.length;i++)
-        {
-            var name = data[i][0]
-            var color = data[i][1]
-            if (choice1on == true)
-            {
-                color =  color
-            }
-            else{
-                color = 0
-            }
-            if (choice2on == true)
-            {
-                color2 =  data2[i][1]
-            }
-            else{
-                color2 = 0
-            }
-            
-            //console.log(color + ',' + color2 + ',' + 0)
-            $(name).css('fill', 'rgb(' + color + ',' + color2 + ',' + 0 + ')')
-        }
-        })
-        })
+            data = stuff
+            $.getJSON( data_url2, function( stuff ) {
+                data2 = stuff  
+                var max1,min1,max2,min2
+                max1 = 0
+                min1 = 0
+                max2 = 0
+                min2 = 0
+                for(var i=0;i<data.length;i++)
+                {
+                    item = data[i][1]
+                    if(i == 0){
+                        min1 = item
+                    }
+                    if(item < min1){
+                        min1 = item
+                    }
+                    if(item > max1){
+                        max1 = item
+                    }
+                }
+                for(var i=0;i<data2.length;i++)
+                {
+                    item = data2[i][1]
+                    if(i == 0){
+                        min2 = item
+                    }
+                    if(item < min2){
+                        min2 = item
+                    }
+                    if(item > max2){
+                        max2 = item
+                    }
+                }
+
+                for(var i=0;i<data.length;i++)
+                {
+                    var name = data[i][0]
+                    var color = data[i][1]
+                    var color2 = data2[i][1]
+                    data_val1 = Math.round(get_new_range(0, numcategories, 0, 255, Math.round(get_new_range(min1,max1,0,numcategories,color))))
+                    data_val2 = Math.round(get_new_range(0, numcategories, 0, 255, Math.round(get_new_range(min2,max2,0,numcategories,color2))))
+                    if (choice1on == true)
+                    {
+                        color = data_val1
+                    }
+                    else{
+                        color = 0
+                    }
+                    if (choice2on == true)
+                    {
+                        color2 =  data_val2 
+                    }
+                    else{
+                        color2 = 0
+                    }
+                    
+                    //console.log(color + ',' + color2 + ',' + 0)
+                    $(name).css('fill', 'rgb(' + color + ',' + color2 + ',' + 0 + ')')
+                }
+                })
+            })
 
 
 
