@@ -13,12 +13,12 @@
     body, html {
         padding: 0;
         margin: 0;
+        max-width: 100%;
         background-color:white;
+
     }
     #container {
-        width: 800px;
-        margin-left: auto;xz
-        margin-right: auto;         
+       
     }
     h1 {
         text-align: center;
@@ -28,23 +28,11 @@
 <body>
     <div id="error"></div>
 <h1>Census Mapper</h1>
-    <ul id="ct"></ul>
-    <form action="">
-    <input type="checkbox" name="percapita" id="percapita">Use per capita values?<br>
-    Number of categories (1 - 255)<input type="text" name="numcategories" id="numcategories"><br>
-<select name="Choice1" id="Choice1"> 
-</select>
-<input type="checkbox" name="choice1on" id="choice1on" checked>On<br>
 
-<select name="Choice2" id="Choice2"> 
-<input type="checkbox" id="choice2on" name="choice2on" checked>On
-</select>
-<button type="button" id="Render">Render</button>
-</form>
 <div id="container">
 
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500.4" height="500.6" viewBox="-18279,-26465 34534,61566">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1500" height="800" viewBox="-18279,-26465 34534,61566">
 
 <g stroke="black" fill="none" stroke-linejoin="round" stroke-width="55" clip-path="url(#state_clip_path)">
 <use xlink:href="#state_outline" fill="white" stroke-width="241" />
@@ -155,6 +143,23 @@
 </svg>
 
 </div>
+
+    <ul id="ct"></ul>
+    <form action="">
+    <input type="checkbox" name="percapita" id="percapita" checked>Use per capita values?<br>
+    Number of categories (1 - 255)<input type="text" name="numcategories" id="numcategories"><br>
+<select name="Choice1" id="Choice1"> 
+</select>
+The more red, the more correllation to choice 1.
+<input type="checkbox" name="choice1on" id="choice1on" checked>On<br>
+
+<select name="Choice2" id="Choice2"> 
+<input type="checkbox" id="choice2on" name="choice2on" checked>On
+</select>
+The more green, the more correllation to choice 2.
+<button type="button" id="Render">Render</button>
+</form>
+The closer the color of a county is to yellow, there is more correlation between both choice 1 and choice 2.
 <script type="text/javascript" charset="utf-8">
 
 var data = [["#Adams", 8], ["#Alexander", 1], ["#Bond", 1], ["#Boone", 24], ["#Brown", 1], ["#Bureau", 23], ["#Calhoun", 1], ["#Carroll", 6], ["#Cass", 1], ["#Champaign", 36], ["#Christian", 4], ["#Clark", 1], ["#Clay", 1], ["#Clinton", 2], ["#Coles", 8], ["#Cook", 851], ["#Crawford", 1], ["#Cumberland", 1], ["#DeKalb", 42], ["#De Witt", 3], ["#Douglas", 2], ["#DuPage", 256], ["#Edgar", 3], ["#Edwards", 1], ["#Effingham", 2], ["#Fayette", 2], ["#Ford", 8], ["#Franklin", 3], ["#Fulton", 9], ["#Gallatin", 1], ["#Greene", 1], ["#Grundy", 9], ["#Hamilton", 1], ["#Hancock", 5], ["#Hardin", 1], ["#Henderson", 8], ["#Henry", 63], ["#Iroquois", 9], ["#Jackson", 8], ["#Jasper", 1], ["#Jefferson", 4], ["#Jersey", 1], ["#Jo Daviess", 4], ["#Johnson", 1], ["#Kane", 138], ["#Kankakee", 17], ["#Kendall", 17], ["#Knox", 60], ["#Lake", 178], ["#LaSalle", 26], ["#Lawrence", 1], ["#Lee", 10], ["#Livingston", 7], ["#Logan", 5], ["#McDonough", 12], ["#McHenry", 77], ["#McLean", 34], ["#Macon", 15], ["#Macoupin", 3], ["#Madison", 16], ["#Marion", 3], ["#Marshall", 7], ["#Mason", 3], ["#Massac", 1], ["#Menard", 3], ["#Mercer", 21], ["#Monroe", 2], ["#Montgomery", 2], ["#Morgan", 5], ["#Moultrie", 2], ["#Ogle", 22], ["#Peoria", 44], ["#Perry", 1], ["#Piatt", 3], ["#Pike", 2], ["#Pope", 1], ["#Pulaski", 1], ["#Putnam", 3], ["#Randolph", 2], ["#Richland", 2], ["#Rock Island", 110], ["#St. Clair", 15], ["#Saline", 2], ["#Sangamon", 22], ["#Schuyler", 2], ["#Scott", 1], ["#Shelby", 2], ["#Stark", 4], ["#Stephenson", 10], ["#Tazewell", 25], ["#Union", 2], ["#Vermilion", 17], ["#Wabash", 2], ["#Warren", 21], ["#Washington", 1], ["#Wayne", 1], ["#White", 1], ["#Whiteside", 23], ["#Will", 97], ["#Williamson", 5], ["#Winnebago", 243], ["#Woodford", 6]]
