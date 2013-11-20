@@ -185,6 +185,7 @@ function get_new_range(old_min,old_max,new_min,new_max,old_val)
     return ((((new_max - new_min) * (old_val - old_min)) / (old_max - old_min)) + new_min)
 }
 var data,data2
+var name_corrections = {"#LaSalle":"#La_Salle", "#St. Clair":"#Saint_Clair"}
 $( "#Render" ).click(function() {
         var choice1Val,choice2Val
         choice1Val = $('#Choice1').val()
@@ -245,6 +246,13 @@ $( "#Render" ).click(function() {
                 for(var i=0;i<data.length;i++)
                 {
                     var name = data[i][0]
+                    if (name_corrections[name] != undefined)
+                    {
+                        name = name_corrections[name]
+                    }
+                    name = name.replace(" ","_")
+
+                    console.log(name)
                     var color = data[i][1]
                     var color2 = data2[i][1]
                     data_val1 = Math.round(get_new_range(0, numcategories, 0, 255, Math.round(get_new_range(min1,max1,0,numcategories,color))))
@@ -267,6 +275,7 @@ $( "#Render" ).click(function() {
                     //console.log(color + ',' + color2 + ',' + 0)
                     $(name).css('fill', 'rgb(' + color + ',' + color2 + ',' + 0 + ')')
                 }
+               // $('#Kendall').css('fill', 'rgb(255,255,255')
                 })
             })
 
