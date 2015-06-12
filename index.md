@@ -1,3 +1,5 @@
+---
+---
 Hi, I'm Quinn. Check out a few of my projects:
 
 [GithubProjectDiscovery](https://githubdiscovery.quinnjarrell.me/): Find similar github projects by comparing their readmes.
