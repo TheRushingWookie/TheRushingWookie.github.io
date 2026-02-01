@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Math - Learn Addition with Polygons!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Shape Math</h1>
+            <p class="subtitle">Click two shapes that add up to the goal!</p>
+        </header>
+
+        <!-- Score and Goal Section -->
+        <div class="info-panel">
+            <div class="score-display">
+                <span class="label">Score</span>
+                <span class="value" id="score">0</span>
+            </div>
+            
+            <div class="goal-display">
+                <span class="label">Find shapes that add to:</span>
+                <div class="goal-shape-container">
+                    <canvas id="goal-canvas" width="100" height="100"></canvas>
+                    <span class="goal-sides" id="goal-sides">6 sides</span>
+                </div>
+            </div>
+
+            <div class="high-score-display">
+                <span class="label">Best</span>
+                <span class="value" id="high-score">0</span>
+            </div>
+        </div>
+
+        <!-- Selection Display -->
+        <div class="selection-display" id="selection-display">
+            <span id="shape1-sides">?</span>
+            <span class="operator">+</span>
+            <span id="shape2-sides">?</span>
+            <span class="operator">=</span>
+            <span id="sum-sides">?</span>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <canvas id="game-canvas"></canvas>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <p><strong>How to play:</strong> Click on two shapes whose sides add up to the goal number!</p>
+        </div>
+
+        <!-- Shape Legend -->
+        <div class="shape-legend">
+            <div class="legend-item"><span class="legend-color" style="background: #FF6B6B;"></span> Triangle = 3</div>
+            <div class="legend-item"><span class="legend-color" style="background: #4ECDC4;"></span> Square = 4</div>
+            <div class="legend-item"><span class="legend-color" style="background: #FFE66D;"></span> Pentagon = 5</div>
+            <div class="legend-item"><span class="legend-color" style="background: #95E1A3;"></span> Hexagon = 6</div>
+            <div class="legend-item"><span class="legend-color" style="background: #DDA0DD;"></span> Heptagon = 7</div>
+            <div class="legend-item"><span class="legend-color" style="background: #FFA07A;"></span> Octagon = 8</div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="new-game-btn" class="btn btn-primary">New Game</button>
+            <button id="hint-btn" class="btn btn-secondary">Hint</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
